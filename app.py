@@ -1,3 +1,29 @@
+# import os
+# import pickle
+# import streamlit as st
+# from streamlit_option_menu import option_menu
+
+# # Set page configuration
+# st.set_page_config(page_title="Health Assistant",
+#                    layout="wide",
+#                    page_icon="🧑‍⚕️")
+
+    
+# # getting the working directory of the main.py
+# working_dir = os.path.dirname(os.path.abspath("D:\multiple-disease-prediction-streamlit-app-main"))
+
+# model_path = os.path.join(working_dir, "saved_models", "diabetes_model.sav")
+# # loading the saved models
+
+# #diabetes_model = pickle.load(open('D:\multiple-disease-prediction-streamlit-app-main\saved_models\diabetes_model.sav', 'rb'))
+
+# diabetes_model = pickle.load(open(model_path, 'rb'))
+
+# heart_disease_model = pickle.load(open('D:\multiple-disease-prediction-streamlit-app-main\saved_models\heart_disease_model.sav', 'rb'))
+
+# parkinsons_model = pickle.load(open('D:\multiple-disease-prediction-streamlit-app-main\saved_models\parkinsons_model.sav', 'rb'))
+
+
 import os
 import pickle
 import streamlit as st
@@ -8,21 +34,18 @@ st.set_page_config(page_title="Health Assistant",
                    layout="wide",
                    page_icon="🧑‍⚕️")
 
-    
-# getting the working directory of the main.py
-working_dir = os.path.dirname(os.path.abspath("D:\multiple-disease-prediction-streamlit-app-main"))
+# Get the directory of the script (works locally & on Streamlit Cloud)
+working_dir = os.path.dirname(os.path.abspath(__file__))
 
-model_path = os.path.join(working_dir, "saved_models", "diabetes_model.sav")
-# loading the saved models
+# Define model paths correctly (relative paths)
+diabetes_model_path = os.path.join(working_dir, "saved_models", "diabetes_model.sav")
+heart_disease_model_path = os.path.join(working_dir, "saved_models", "heart_disease_model.sav")
+parkinsons_model_path = os.path.join(working_dir, "saved_models", "parkinsons_model.sav")
 
-#diabetes_model = pickle.load(open('D:\multiple-disease-prediction-streamlit-app-main\saved_models\diabetes_model.sav', 'rb'))
-
-diabetes_model = pickle.load(open(model_path, 'rb'))
-
-heart_disease_model = pickle.load(open('D:\multiple-disease-prediction-streamlit-app-main\saved_models\heart_disease_model.sav', 'rb'))
-
-parkinsons_model = pickle.load(open('D:\multiple-disease-prediction-streamlit-app-main\saved_models\parkinsons_model.sav', 'rb'))
-
+# Load models
+diabetes_model = pickle.load(open(diabetes_model_path, 'rb'))
+heart_disease_model = pickle.load(open(heart_disease_model_path, 'rb'))
+parkinsons_model = pickle.load(open(parkinsons_model_path, 'rb'))
 
 
 # sidebar for navigation
